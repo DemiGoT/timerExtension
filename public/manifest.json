@@ -8,7 +8,9 @@
     },
     "description": "Base Level Extension",
     "version": "1.0",
-    "permissions" : ["tabs"],
+    "permissions": [
+        "storage"
+    ],
     "manifest_version": 2,
     "browser_action": {
         "default_popup": "index.html",
