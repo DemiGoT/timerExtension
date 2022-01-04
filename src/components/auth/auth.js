@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import './auth.css';
-import { getToken, storageWorker } from "../logic/authLogic";
 
-function Auth() {
+function Auth({ handleParentClick }) {
 
     const [inputValue, setInputValue] = useState(null);
 
@@ -30,9 +29,7 @@ function Auth() {
             return alert('Password is required');
         }
 
-        getToken(inputValue).then((value) => {
-            storageWorker(value);
-        });
+        handleParentClick(inputValue);
 
     }
 

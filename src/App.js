@@ -1,13 +1,12 @@
 import React from 'react'
 import './App.css';
-import Auth from "./components/auth/auth";
-import Test from './components/test/test';
+import TimerContainerWrapper from './components/timer-container-wrapper/timer-container-wrapper';
 
 function App() {
 
     return (
         <div className="App">
-            <Auth />
+            <TimerContainerWrapper />
         </div>
     );
 }

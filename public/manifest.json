@@ -9,7 +9,8 @@
     "description": "Base Level Extension",
     "version": "1.0",
     "permissions": [
-        "storage"
+        "storage",
+        "https://timer.gearheart.io/*"
     ],
     "manifest_version": 2,
     "browser_action": {
