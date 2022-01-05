@@ -10,7 +10,7 @@ function TimerContainerWrapper() {
     const [logged, setLogged] = useState(false);
     const [monthTimeSpend, setMonthTimeSpend] = useState(null);
     const [currentTimeSpend, setCurrentTimeSpend] = useState(null);
-    const [lastActivities, setLastActivities] = useState([]);
+    const [lastActivities, setLastActivities] = useState([])
 
     useEffect(() => {
         getUserInformation().then((response) => {
@@ -24,23 +24,18 @@ function TimerContainerWrapper() {
 
     }, [])
 
-    // getLastActivities().then((response) => {
-    //     response.forEach((item) => {
-    //         getLastActivitiesDescription(item.id).then((value) => {
-    //             let obj = {
-    //                 name: value.name,
-    //                 id: item.id,
-    //                 activity: item.activity
-    //             }
-    //             setLastActivities([
-    //                 ...lastActivities,
-    //                 obj
-    //             ])
-    //         })
-    //     })
-    // });
+    const activities = () => {
+        getLastActivities().then((response) => {
+            Promise.all(response.map((item) => getLastActivitiesDescription(item.id))).then((data) => {
+                const activitiesList = response.map((el) => {
+                    el.name = data.find((act) => act.id === el.id).name;
+                    return el;
+                })
+                setLastActivities(activitiesList);
+            })
+        });
 
-    // console.log("lastActivities: ", lastActivities);
+    }
 
     const secondsTohhmm = (totalSeconds) => {
         let hours = Math.floor(totalSeconds / 3600);
@@ -79,7 +74,7 @@ function TimerContainerWrapper() {
             {!logged &&
                 <Auth handleParentClick={handleParentClick} />
             }
-            <TimerContainer handleLogout={handleLogout} monthTimeSpend={monthTimeSpend} currentTimeSpend={currentTimeSpend} />
+            <TimerContainer handleLogout={handleLogout} monthTimeSpend={monthTimeSpend} currentTimeSpend={currentTimeSpend} activities={activities} lastActivities={lastActivities} />
         </div>
     );
 }

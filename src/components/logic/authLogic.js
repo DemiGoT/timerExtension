@@ -11,7 +11,6 @@ export const getToken = async (value) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(value)
-        // body: JSON.stringify({ email: 'kozachok.anton@gmail.io', password: '123' })
     });
 
     return response.json();
@@ -26,7 +25,7 @@ export const getUserInformation = async () => {
             'Csrftoken': 'QgLfAh9MfB9ZrMH89IiWyBCCI8CAuIuJelYgoQNJ4uA35itoiAZeCGJFOemtsUul'
         },
     })
-    
+
     return response.json();
 }
 
@@ -35,8 +34,7 @@ export const getTimeSpend = async () => {
         method: 'GET',
         headers: {
             'Accept': '*/*',
-            'Content-Type': 'application/json',
-            'Csrftoken': 'QgLfAh9MfB9ZrMH89IiWyBCCI8CAuIuJelYgoQNJ4uA35itoiAZeCGJFOemtsUul'
+            'Content-Type': 'application/json'
         },
     })
 
@@ -60,8 +58,7 @@ export const getLastActivities = async () => {
         method: 'GET',
         headers: {
             'Accept': '*/*',
-            'Content-Type': 'application/json',
-            'Csrftoken': 'QgLfAh9MfB9ZrMH89IiWyBCCI8CAuIuJelYgoQNJ4uA35itoiAZeCGJFOemtsUul'
+            'Content-Type': 'application/json'
         },
     })
 
@@ -73,8 +70,7 @@ export const getLastActivitiesDescription = async (id) => {
         method: 'GET',
         headers: {
             'Accept': '*/*',
-            'Content-Type': 'application/json',
-            'Csrftoken': 'QgLfAh9MfB9ZrMH89IiWyBCCI8CAuIuJelYgoQNJ4uA35itoiAZeCGJFOemtsUul'
+            'Content-Type': 'application/json'
         },
     })
 

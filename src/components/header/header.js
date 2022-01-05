@@ -3,23 +3,29 @@ import './header.css';
 import { DownOutlined } from '@ant-design/icons';
 import { Menu, Dropdown, Divider } from 'antd';
 
-function Header({ handleLogout, monthTimeSpend, currentTimeSpend }) {
+function Header({ handleLogout, monthTimeSpend, currentTimeSpend, activities, lastActivities }) {
 
     const menu = (
         <Menu>
             <Menu.ItemGroup title="My last activities">
-                <Menu.Item>
-                    <a href="https://www.antgroup.com">1st menu item</a>
-                </Menu.Item>
-                <Menu.Item>
-                    <a href="https://www.aliyun.com">2nd menu item</a>
-                </Menu.Item>
+                {lastActivities.map((item) => {
+                    return (
+                        <Menu.Item>
+                            <a href="#">{item.name}</a>
+                            <span>({item.activity})</span>
+                        </Menu.Item>
+                    )
+                })}
             </Menu.ItemGroup>
             <Menu.ItemGroup title="Current team activities">
                 <Menu.Item>3rd menu item</Menu.Item>
             </Menu.ItemGroup>
         </Menu>
     );
+
+    lastActivities.map((item) => {
+        console.log("item: ", item.name);
+    })
 
     return (
         <div className="header">
@@ -30,7 +36,10 @@ function Header({ handleLogout, monthTimeSpend, currentTimeSpend }) {
                 <div className="header-right">
                     <Divider type="vertical" />
                     <Dropdown overlay={menu} trigger={['click']}>
-                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                        {/* <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                            Last Activities <DownOutlined />
+                        </a> */}
+                        <a href="#" className="ant-dropdown-link" onClick={() => activities()}>
                             Last Activities <DownOutlined />
                         </a>
                     </Dropdown>

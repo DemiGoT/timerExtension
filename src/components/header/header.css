@@ -66,7 +66,7 @@
 }
 
 .ant-dropdown-menu-item-group-title {
-    color: rgba(0,0,0,.85);
+    color: rgba(0, 0, 0, .85);
 }
 
 .ant-dropdown-menu-item-group-title {
@@ -95,4 +95,8 @@
 
 .ant-dropdown-menu-title-content {
     color: #1890ff;
+}
+
+.ant-dropdown-menu-title-content>a {
+    margin-right: 5px;
 }
