@@ -48,7 +48,7 @@
     display: flex;
 }
 
-.header-right {
+.header-right, .header-right-task {
     display: flex;
     align-items: center;
 }
@@ -85,8 +85,13 @@
     padding: 3px 0;
 }
 
-.ant-dropdown-trigger {
+.ant-dropdown-trigger, .header-right-task__text {
     color: #002766;
+}
+
+.task-name {
+    margin-left: 8px;
+    margin-right: 5px;
 }
 
 .ant-dropdown-menu {
@@ -95,8 +100,22 @@
 
 .ant-dropdown-menu-title-content {
     color: #1890ff;
+    display: flex;
+    align-items: center;
 }
 
 .ant-dropdown-menu-title-content>a {
     margin-right: 5px;
+}
+
+.ant-dropdown-menu-title-content > span {
+    margin-right: 7px;
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.svg-play-button{
+    color: #002766;
 }
